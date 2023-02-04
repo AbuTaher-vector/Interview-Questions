@@ -1,0 +1,45 @@
+Link : https://practice.geeksforgeeks.org/problems/kth-smallest-element5635/1?page=1&category[]=Arrays&sortBy=submissions
+Code : 
+class Solution{
+    public:
+    int kthSmallest(int arr[], int l, int r, int k) {
+        priority_queue<int,vector<int>,greater<int>>pq;
+        for(int i=0;i<=r;i++) pq.push(arr[i]);
+        int count=0,ans;
+        while(!pq.empty())
+        {
+            count++;
+            if(count==k)
+            {
+                ans=pq.top();
+                break;
+            }
+            pq.pop();
+        }
+        return ans;
+    }
+    };
+    
+Link : https://leetcode.com/problems/kth-largest-element-in-an-array/description/
+Code :
+class Solution {
+public:
+    int findKthLargest(vector<int>& nums, int k) {
+        priority_queue<int>q;
+        for(auto x:nums) q.push(x);
+        int ans;
+        int count=0;
+        while(!q.empty())
+        {
+            count++;
+            if(count==k)
+            {
+                ans=q.top();
+                break;
+            }
+            q.pop();
+        }
+        return ans;
+        
+    }
+};
