@@ -1,0 +1,61 @@
+Leetcode : https://leetcode.com/problems/reverse-words-in-a-string/description/
+Code : 
+class Solution {
+public:
+    string reverseWords(string s) {
+        bool space = false;
+        while(s.back()==' ') s.pop_back();
+        reverse(s.begin(),s.end());
+        while(s.back()==' ') s.pop_back();
+        string word,ans;
+        for(int i=0;i<s.size();i++){
+            if(s[i]!=' '){
+                word.push_back(s[i]);
+                space = true;
+            }
+            else{
+                if(!word.empty()){
+                     reverse(word.begin(),word.end());
+                     if(space) word.push_back(s[i]);
+                     ans+=word;
+                     word.erase();
+                }
+                space = false;
+            }
+        }
+        if(!word.empty()){
+            reverse(word.begin(),word.end());
+                ans+=word;
+        }
+        return ans;
+
+    }
+};
+
+GeeksforGeeks : https://practice.geeksforgeeks.org/problems/reverse-words-in-a-given-string5459/1?page=1&company[]=Amazon&category[]=Strings&sortBy=submissions
+Code: 
+class Solution
+{
+    public:
+    
+    string reverseWords(string s) 
+    { 
+        string word,ans;
+        for(int i=s.size()-1;i>=0;i--){
+            if(s[i]!='.'){
+                word.push_back(s[i]);
+            }
+            else{
+                     reverse(word.begin(),word.end());
+                     word.push_back(s[i]);
+                     ans+=word;
+                     word.erase();
+            }
+        }
+        if(!word.empty()){
+            reverse(word.begin(),word.end());
+                ans+=word;
+        }
+        return ans;
+    } 
+ }
