@@ -1,0 +1,31 @@
+Leetcode : https://leetcode.com/problems/valid-palindrome/description/
+Code : 
+class Solution {
+public:
+    bool isPalindrome(string s) {
+        string x;
+        for(auto k:s){
+            if((k>='A' && k<='Z') || (k>='a' && k<='z') || (k>='0' && k<='9')) x.push_back(tolower(k));
+        }
+        string t=x;
+        reverse(t.begin(),t.end());
+        if(t==x) return true;
+        else return false;
+        
+    }
+};
+
+GeeksforGeeks : https://practice.geeksforgeeks.org/problems/palindrome-string0817/1?page=1&company[]=Amazon&category[]=Strings&sortBy=submissions
+Code : 
+class Solution{
+public:	
+	
+	
+	int isPalindrome(string S)
+	{
+	    string x=S;
+	    reverse(x.begin(),x.end());
+	    if(x==S) return 1;
+	    else return 0;
+	}
+  };
