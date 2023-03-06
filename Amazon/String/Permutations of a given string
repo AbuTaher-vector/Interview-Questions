@@ -1,0 +1,33 @@
+Leedcode : https://leetcode.com/problems/permutations/description/
+Code : 
+class Solution {
+public:
+    vector<vector<int>> permute(vector<int>& nums) {
+        vector<vector<int>>v;
+        sort(nums.begin(),nums.end());
+        v.push_back(nums);
+        while(next_permutation(nums.begin(),nums.end())){
+            v.push_back(nums);
+        }
+        return v;
+        
+    }
+};
+
+GeeksforGeeks : https://practice.geeksforgeeks.org/problems/permutations-of-a-given-string2041/1?page=1&company[]=Amazon&category[]=Strings&sortBy=submissions
+Code : 
+class Solution
+{
+
+	public:
+		vector<string>find_permutation(string S)
+		{
+		   vector<string>v;
+        sort(S.begin(),S.end());
+        v.push_back(S);
+        while(next_permutation(S.begin(),S.end())){
+            v.push_back(S);
+        }
+        return v;
+		}
+};
