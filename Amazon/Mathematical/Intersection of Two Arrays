@@ -1,0 +1,37 @@
+LeetCode : https://leetcode.com/problems/intersection-of-two-arrays/description/
+Code : 
+class Solution {
+public:
+    vector<int> intersection(vector<int>& nums1, vector<int>& nums2) {  
+        vector<int>a(1001),b(1001);
+        vector<int>ans;
+        for(auto x:nums1) a[x]++;
+        for(auto x:nums2) b[x]++;
+        for(auto x:nums1) {
+            if(a[x]!=0 && b[x]!=0) {
+                  ans.push_back(x);
+                  a[x]=0,b[x]=0;
+            }
+        }
+        return ans;
+    }
+};
+
+GeeksforGeeks : https://practice.geeksforgeeks.org/problems/intersection-of-two-arrays2404/1?page=1&company[]=Amazon&category[]=Mathematical&sortBy=submissions
+Code : 
+class Solution {
+  public:
+    int NumberofElementsInIntersection(int a[], int b[], int n, int m) {
+       int ans=0;
+       vector<int>x(100005),y(100005);
+       for(int i=0;i<n;i++) x[a[i]]++;
+       for(int i=0;i<m;i++) y[b[i]]++;
+       for(int i=0;i<n;i++){
+           if(x[a[i]]!=0 && y[a[i]]!=0){
+               ans++;
+               x[a[i]]=0,y[a[i]]=0;
+           }
+       }
+       return ans;
+    }
+    };
